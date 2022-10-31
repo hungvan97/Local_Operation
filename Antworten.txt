@@ -1,0 +1,35 @@
+Aufgabe 1
+
+a) Parameter "same" gibt nur die zentral Teil von der Faltung zurück.
+Gegeben der Matrix x, und Maske-matrix f. y ist der von der Faltung erzeugende Ergebnis ( auf Zahlen ) 
+
+b) Die Koeffizienten von zweite 1.Abteilung verschieben sich nach recht im Vergleich zu der Koeffizienten erste 1.Abteilung bei 1 Element. 
+Das führt dazu, das jeweilige Ergebnis sich gegenüber auch genau bei 1 Element verschieben in gleichen Reihenfolge.
+Da meist jeder Element von 3 Ergebnisse liegt nur in den Wert-Bereich [-0,4 0,4], dient diese Filter dazu, um die Ausgangpunkt zu reduzieren und weiter spater aufzuarbeiten.
+
+c) Da wir nur den Wert des Ergebnis im Bereich [-0.4 0.4] haben, mussen wir geeignet Variaten von zero-padding (Anzahl des Zeros) bzw. Spiegelung (Größ von m)
+auswählen. Je nach größer ist die Variaten in jeweilige Fall, desto mehr breitet das Ergebnis aus. Ich gehe davon aus, das die Werte außer dem gewünschten Bereich
+[-0.4, 0.4] Geräusch sind.
+
+Kontrollfrage
+a)
+"same"
+"conv" : bringt die zentral Teil der Faltung zurück, die gleiche Größ wie eingegeben Vektor
+"conv2": bringt die zentral Teil der Faltung zurück, die gleiche Größ wie erste eingegeben Matrix
+ 
+"full" 
+"conv" : bringt ganze Faltung zurück
+"conv2": bringt ganze 2-D Faltung zurück
+
+"valid"
+"conv" : bringt nur die Teile der Faltung, die nicht mit dem Zero-Padded berechnet werden, zurück. Die Länge davon ist nicht gleich zu eingegeben Vektor
+"conv2": bringt nur die Teile der Faltung, die nicht mit dem Zero-Padded berechnet werden, zurück.
+
+b) Fast gleich von Spiegelung gibt es Reflection Padding. Die Unterschied ist: die Rand wird nicht reflexiert, sondern handelt es nur mit die nachfolgende Wert. 
+Das ist hilfreich, wenn zB: die Rande des Bild halten unwichtige Wert.
+
+c)
+- Ableitungsfilter normaliziert das beliebige Wert gemäß nachbarschaftliche Bereich mithilfe eines gegeben Distanz zum Nomalizieren
+- Glättung reduziert Bildrauschen mithilfe Ausrechnen des Mittelwertfilter
+
+d) die Einstellung von Fernsterfunktion, Intensität wirkt einen Einfluss auf die Wahl der detektierten Ecken. 
